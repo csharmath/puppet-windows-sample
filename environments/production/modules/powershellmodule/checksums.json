@@ -1,0 +1,16 @@
+{
+  "CHANGELOG.md": "13ec9a0e5027d36e89cc8187eb8683b5",
+  "LICENSE": "3b83ef96387f14655fc854ddc3c6bd57",
+  "README.md": "06acc4ebb1f07b9a474980b0e49423c7",
+  "examples/init.pp": "2b0535d4ce501a419fff77b7a3cdc3de",
+  "lib/puppet/feature/powershellgetwindows.rb": "9d174357a3f7130efdcd6a6b88cfeb4e",
+  "lib/puppet/provider/package/powershellcore.rb": "786fdf6523aa8974dfdeef32e733eeed",
+  "lib/puppet/provider/package/windowspowershell.rb": "b09febc5c602cdc22a092a85f580950f",
+  "lib/puppet/provider/pspackageprovider/powershellcore.rb": "a033cb6a47ab42b8ae37c40b82640a30",
+  "lib/puppet/provider/pspackageprovider/windowspowershell.rb": "5cacfbc77ce5820dca685bfa5427fe6e",
+  "lib/puppet/provider/psrepository/powershellcore.rb": "97011a62461c8c1dac01e906a9fcf10d",
+  "lib/puppet/provider/psrepository/windowspowershell.rb": "25f54034e5c86fa47ddd79cc4610f1e1",
+  "lib/puppet/type/pspackageprovider.rb": "7c72cdd0e890051e0f3fec6363f4a58a",
+  "lib/puppet/type/psrepository.rb": "4643df31e9762f48fe67f0f7657af1c8",
+  "metadata.json": "06de816f57c6da4fcb425724bae56a94"
+}
