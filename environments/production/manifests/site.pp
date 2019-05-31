@@ -34,19 +34,19 @@ node default {
     source   => 'PSGallery',
   }
 
-  # dsc {'timezone':
-  #   resource_name => 'TimeZone',
-  #   module        => 'ComputerManagementDsc',
-  #   properties    => {
-  #     IsSingleInstance => 'Yes',
-  #     TimeZone   => 'Eastern Standard Time',
-  #   }
+  dsc {'timezone':
+    resource_name => 'TimeZone',
+    module        => 'ComputerManagementDsc',
+    properties    => {
+      IsSingleInstance => 'Yes',
+      TimeZone   => 'Eastern Standard Time',
+    }
 
-  exec {'Set Timezone':
-    command => 'Set-TimeZone -Id "Eastern Standard Time"',
-    unless => 'if ((Get-TimeZone).Id -ne "Eastern Standard Time") { exit 1 }',
-    provider => powershell,
-  }
+  # exec {'Set Timezone':
+  #   command => 'Set-TimeZone -Id "Eastern Standard Time"',
+  #   unless => 'if ((Get-TimeZone).Id -ne "Eastern Standard Time") { exit 1 }',
+  #   provider => powershell,
+  # }
 
   exec {'configure windows update':
     command  => 'Add-WUServiceManager -ServiceID 7971f918-a847-4430-9279-4a52d1efe18d',
