@@ -1,0 +1,4 @@
+---
+profile::jenkins::master::jenkinsport: '9091'
+profile::jenkins::master::java_dist: 'jdk'
+profile::jenkins::master::java_version: 'latest'

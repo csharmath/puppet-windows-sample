@@ -1,0 +1,4 @@
+---
+profile::windows::base::packages: ['git', 'sysinternals']
+profile::windows::base:powershell_packages: ['xPSDesiredStateConfiguration','PSWindowsUpdate','ComputerManagementDsc']
+profile::windows::base:timezone: 'Eastern Standard Time'
