@@ -1,4 +1,4 @@
 node default {
-  #include role::ciserver
-  include profile::windows::base
+  include role::ci::server
+  #include profile::windows::base
 }
