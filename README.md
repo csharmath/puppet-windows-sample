@@ -9,4 +9,10 @@ I did not find concrete and complete examples of a whole environment with site m
 For windows my plan is to use PowerShell DSC mainly.  
 This requires that we have a the necessary PowerShell DSC resource modules installed, so there is some bootstrapping of that.
 
-As per patching, I am just experimenting with Puppet's schedule meta property to define a work window for patches and connecting windows update with some magic guid to actually patch.
+## Features
+
+* Chocolatey based default software packages
+* Adding Nuget package provider
+* PowerShell gallery package install
+* Some kind of concept of patching during maintanance window from Microsoft update
+* reboot 

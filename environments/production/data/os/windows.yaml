@@ -1,4 +1,18 @@
 ---
 profile::windows::base::packages: ['git', 'sysinternals']
-profile::windows::base:powershell_packages: ['xPSDesiredStateConfiguration','PSWindowsUpdate','ComputerManagementDsc']
-profile::windows::base:timezone: 'Eastern Standard Time'
+profile::windows::base::powershell_packages: 
+  - 'xPSDesiredStateConfiguration'
+  - 'PSWindowsUpdate'
+  - 'ComputerManagementDsc'
+  - 'xPendingReboot'
+profile::windows::base::timezone: 'Eastern Standard Time'
+profile::windows::hardened::services_not_needed:
+  - SharedAccess
+  - lltdsvc
+  - Spooler # At least one DC should have this if print pruning in AD is needed - not in this case
+  - PrintNotify
+  - ScDeviceEnum
+  - wisvc
+  - NetTcpPortSharing
+  - RemoteAccess
+  - SCardSvr

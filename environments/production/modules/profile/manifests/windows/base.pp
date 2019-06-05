@@ -3,7 +3,8 @@ class profile::windows::base(
   Array[String] $powershell_packages = ['xPSDesiredStateConfiguration','PSWindowsUpdate','ComputerManagementDsc'],
   String $timezone = 'Eastern Standard Time',
 ) {
-  
+
+    # install some default software packages like git and sysinternals
     package { $packages:
       ensure   => present,
       provider => 'chocolatey',
@@ -13,18 +14,21 @@ class profile::windows::base(
       ensure => present,
     }
 
+    # setup powershell gallery as trusted source
     psrepository { 'PSGallery':
       ensure              => present,
       source_location     => 'https://www.powershellgallery.com/api/v2/',
       installation_policy => 'trusted',
     }
 
+    # install powershell modules (mostly DSC)
     package { $powershell_packages:
       ensure   => latest,
       provider => 'windowspowershell',
       source   => 'PSGallery',
     }
 
+    # 
     dsc {'timezone':
       resource_name => 'TimeZone',
       module        => 'ComputerManagementDsc',
@@ -40,18 +44,20 @@ class profile::windows::base(
       provider => powershell,
     }
 
-    schedule {'nightly':
+    schedule { 'nightly':
       period => daily,
-      range  => '23-4',
+      range  => '0-3',
+      repeat => 3,
     }
 
     exec {'Install windows updates':
-      command  => 'Get-WUInstall –MicrosoftUpdate –AcceptAll –IgnoreReboot',
+      command  => 'Install-WindowsUpdate -MicrosoftUpdate -AcceptAll -IgnoreReboot',
       provider => powershell,
       schedule => 'nightly'
     }
 
     reboot { 'reboot when pending':
-        when    => pending,
+        when     => pending,
+        schedule => 'nightly'
     }
 }

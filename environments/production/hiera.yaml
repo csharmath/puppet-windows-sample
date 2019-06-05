@@ -3,9 +3,12 @@
 
 version: 5
 
-# defaults:
-#   data_hash: yaml_data
-# hierarchy:
-#  - name: Common
-#    data_hash: yaml_data
-hierarchy: []
+defaults:
+  datadir: data
+  data_hash: yaml_data
+
+hierarchy:
+  - name: "Per-OS defaults"
+    path: "os/%{facts.os.family}.yaml"
+  - name: "Common data"
+    path: "common.yaml"
