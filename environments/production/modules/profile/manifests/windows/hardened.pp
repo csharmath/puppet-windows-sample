@@ -1,4 +1,8 @@
-# Sample hardening steps. Rest is usually done via security baseline GPO's
+# Warning! This is not a complete security hardening solution!
+# Sample hardening steps! Rest is usually done via security baseline GPO's. 
+# Standalon servers should apply local secpol settings based on security baseline GPO's
+#
+# what it does:
 # Disable unnecessary services
 # Disable Guest account
 class profile::windows::hardened(
