@@ -9,7 +9,8 @@ class profile::windows::hardened(
     enable => false,
   }
 
-  user { 'Guest':
-    ensure  => 'absent',
+  dsc_user { 'Guest':
+    dsc_username  => 'Guest',
+    dsc_disabled  => 'true',
   }
 }
